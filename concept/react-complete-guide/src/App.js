@@ -22,7 +22,6 @@ function App() {
   }
   return (
     <div>
-      <h2>Let's get start!</h2>
       <NewExpense onAddExpense={addExpenseHandler}></NewExpense>
       <Expenses items={expenses}></Expenses>
     </div>
