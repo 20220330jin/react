@@ -21,6 +21,8 @@ export default NextAuth({
                 }
 
                 const isValid = await verifyPassword(credentials.password, user.password);
+                console.log(credentials.password);
+                console.log(user.password);
 
                 if (!isValid) {
                     client.close();
