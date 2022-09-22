@@ -2,6 +2,7 @@ import {useRef, useState} from 'react';
 import {signin} from "next-auth/client";
 
 import classes from './auth-form.module.css';
+import {useRouter} from "next/router";
 
 async function createUser(email, password) {
     const response = await fetch('/api/auth/signup', {
@@ -22,6 +23,8 @@ async function createUser(email, password) {
 }
 
 function AuthForm() {
+
+    const router = useRouter();
 
     const emailInputRef = useRef();
     const passwordInputRef = useRef();
@@ -45,8 +48,8 @@ function AuthForm() {
                 password: enteredPassword,
             });
             console.log(result);
-            if(!result.error){
-                
+            if (!result.error) {
+                router.replace('/profile')
             }
         } else {
             try {
